@@ -35,12 +35,13 @@ const paymentTypeDefs = gql `
 
 
     extend type Mutation {
-        createAccount(userInput :CreateAccountInput): AccountDetail!
+        createAccount(userInput: CreateAccountInput): AccountDetail!
         createPayment(payment: PaymentInput!): PaymentDetail!
-        paymentByUsername(username: String!): [PaymentDetail]
+        
     }
     
     extend type Query {
         accountDetailByUsername(username: String!): AccountDetail!
+        paymentByUsername(username: String!): [PaymentDetail]
 }`;
 module.exports = paymentTypeDefs;
