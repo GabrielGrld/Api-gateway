@@ -9,7 +9,7 @@ class PaymentAPI extends RESTDataSource {
     }
 
     async createAccount(account) {
-        account = new Object(JSON.parse(JSON.stringify(user)));
+        account = new Object(JSON.parse(JSON.stringify(account)));
         return await this.post(`/accounts/`, account);
     }
 
@@ -18,13 +18,12 @@ class PaymentAPI extends RESTDataSource {
     }
 
     async paymentRequest(payment) {
-        payment = new Object(JSON.parse(JSON.stringify(credentials)));
+        payment = new Object(JSON.parse(JSON.stringify(payment)));
         return await this.post(`/transactions/`, payment);
     }
 
-    async paymentByUsername(username) {
-        username = new Object(JSON.parse(JSON.stringify({ refresh: token })));
-        return await this.post(`/transactions/`, username);
+    async paymentsByUsername(username) {
+        return await this.get(`/transactions/${username}/`);
     }
 }
 
