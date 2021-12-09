@@ -17,7 +17,7 @@ class PaymentAPI extends RESTDataSource {
         return await this.get(`/accounts/${username}/`);
     }
 
-    async paymentRequest(payment) {
+    async createPayment(payment) {
         payment = new Object(JSON.parse(JSON.stringify(payment)));
         return await this.post(`/transactions/`, payment);
     }

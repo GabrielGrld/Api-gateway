@@ -42,6 +42,6 @@ const paymentTypeDefs = gql `
     
     extend type Query {
         accountDetailByUsername(username: String!): AccountDetail!
-        paymentByUsername(username: String!): [PaymentDetail]
+        paymentsByUsername(username: String!): [PaymentDetail]
 }`;
 module.exports = paymentTypeDefs;
