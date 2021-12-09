@@ -13,7 +13,7 @@ class PqrAPI extends RESTDataSource {
         return await this.post(`/pqr/`, pqr);
     }
 
-    async getAccount(pqr) {
+    async getPqr(pqr) {
         pqr = new Object(JSON.parse(JSON.stringify(pqr)));
         return await this.get(`/pqr/`);
     }

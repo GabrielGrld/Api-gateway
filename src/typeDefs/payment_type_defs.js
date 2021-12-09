@@ -29,7 +29,7 @@ const paymentTypeDefs = gql `
     }
 
     type UserPaymentsQuery{
-        payments: [paymentDetail]
+        payments: [PaymentDetail]
     }
        
 
