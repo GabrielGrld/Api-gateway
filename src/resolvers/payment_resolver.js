@@ -1,11 +1,16 @@
 const paymentResolver = {
 
     Query: {
-        accountDetailByUsername: (_, { username }, { dataSources, userIdToken }) => {
-            dataSources.paymentAPI.getAccount(username)
+        accountDetailByUsername: (_, { username }, { dataSources }) => {
+            console.log("Aqui estoy en PaymentResolver OJO");
+            console.log(dataSources.paymentAPI.accountDetailByUsername(username));
+            console.log ("What is a promise");
+            console.log("-------------------------------------------");
+
+            dataSources.paymentAPI.accountDetailByUsername(username);
         },
         paymentsByUsername: (_, { username }, { dataSources}) => {
-            dataSources.paymentApi.paymentsByUsername(username)
+            dataSources.paymentApi.paymentsByUsername(username);
 },
 
 },

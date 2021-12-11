@@ -16,9 +16,9 @@ const pqrTypeDefs = gql `
         user: Int!
         product_id: Int!
         content: String!
-        _id: String!
+        id: String!
         date: String!
-        __v:Int!
+        v:Int!
 
     } 
     

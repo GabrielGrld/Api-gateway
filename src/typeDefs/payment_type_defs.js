@@ -11,7 +11,7 @@ const paymentTypeDefs = gql `
 
     type AccountDetail{
         username: String!
-        balance: String!
+        balance: Int!
         lastChange: String!
     }
 

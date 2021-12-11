@@ -5,16 +5,19 @@ const serverConfig = require('../server');
 class PaymentAPI extends RESTDataSource {
     constructor() {
         super();
-        this.baseURL = serverConfig.payment_api_url;
+        this.baseURL = 'https://ts-payment-ms.herokuapp.com';
     }
-
+ 
     async createAccount(account) {
         account = new Object(JSON.parse(JSON.stringify(account)));
         return await this.post(`/accounts/`, account);
     }
 
-    async getAccount(username) {
-        return await this.get(`/accounts/${username}/`);
+    async accountDetailByUsername(username) {
+        const response = await this.get(`/accounts/${username}`);
+        console.log("Esto es AccountDetailByUsername en pay_API, devuelve  Esta correcto");
+        console.log(response);
+        return await this.get(`/accounts/${username}`);
     }
 
     async createPayment(payment) {
@@ -23,8 +26,28 @@ class PaymentAPI extends RESTDataSource {
     }
 
     async paymentsByUsername(username) {
-        return await this.get(`/transactions/${username}/`);
+        return await this.get(`/transactions/${username}`);
     }
+    
+
+      accountReducer(account){
+          return{
+              username: account.username,
+              balance: account.balance,
+              lastChange: account.lastChange
+          };
+      }
+
+
+
+
+
 }
+ 
+
+
+
+
+
 
 module.exports = PaymentAPI;
